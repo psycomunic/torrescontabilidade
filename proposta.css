@@ -240,34 +240,14 @@ body {
     position: relative;
 }
 
-/* Faixa roxa e preta entre a imagem e o texto */
-.split-left::after {
-    content: '';
-    position: absolute;
-    bottom: 25%;
-    left: 0;
-    width: 200%;
-    height: 20px;
-    background: var(--purple);
-    z-index: 10;
-}
 
-.split-left::before {
-    content: '';
-    position: absolute;
-    bottom: 25%;
-    right: -140%;
-    width: 40%;
-    height: 20px;
-    background: black;
-    z-index: 10;
-}
 
 .split-right {
     width: 65%;
     height: 100%;
     padding: 60px 80px;
     overflow-y: auto;
+    background-color: #f8fafc;
 }
 
 .slide-header {
@@ -306,11 +286,12 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 24px;
-    background: #f9fafb;
+    background: #ffffff;
     padding: 30px;
     border-radius: 16px;
-    border: 1px solid #e5e7eb;
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid transparent;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
 .feature-card:hover {
@@ -547,6 +528,7 @@ body {
     padding: 40px 60px;
     flex: 1;
     overflow-y: auto;
+    background-color: #f8fafc;
 }
 
 .terms-cards {
@@ -560,12 +542,12 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 20px;
-    background: white;
+    background: #ffffff;
     padding: 24px;
     border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    border: 1px solid #f3f4f6;
-    transition: transform 0.2s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
 .term-card:hover {
@@ -663,9 +645,7 @@ body {
     }
     
     .split-left::after {
-        width: 100%;
-        bottom: 0;
-        height: 10px;
+        display: none;
     }
     
     .split-left::before {
