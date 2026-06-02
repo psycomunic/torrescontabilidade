@@ -46,11 +46,11 @@ if (mobileToggle) {
             nav.style.top = '100%';
             nav.style.left = '0';
             nav.style.right = '0';
-            nav.style.background = 'white';
+            nav.style.background = 'var(--bg-main)';
             nav.style.padding = '20px 24px';
-            nav.style.boxShadow = '0 8px 24px rgba(15, 10, 30, 0.1)';
+            nav.style.boxShadow = 'var(--shadow-lg)';
             nav.style.gap = '16px';
-            nav.style.borderTop = '1px solid #E4E4E7';
+            nav.style.borderTop = '1px solid var(--border-color, #E4E4E7)';
         } else {
             nav.style.display = '';
         }
