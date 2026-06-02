@@ -253,3 +253,34 @@ if (scrollContainer && prevBtn && nextBtn) {
         scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     });
 }
+
+// ====================================
+// VIDEO MODAL LOGIC
+// ====================================
+function openVideoModal(videoId) {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('modalIframe');
+    
+    // Set iframe source with autoplay
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    
+    // Show modal
+    modal.classList.add('active');
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('modalIframe');
+    
+    // Hide modal
+    modal.classList.remove('active');
+    
+    // Stop video by clearing src
+    iframe.src = '';
+    
+    // Restore body scroll
+    document.body.style.overflow = '';
+}

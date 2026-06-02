@@ -2346,7 +2346,8 @@ ul {
         text-align: center;
     }
 
-    .form-row {
+    .form-row,
+    .cta-final-contact {
         grid-template-columns: 1fr;
     }
 
@@ -2408,6 +2409,14 @@ ul {
     padding: 80px 0;
     background-color: var(--white);
     overflow: hidden;
+}
+
+.testimonials-stories .section-header h2 {
+    color: #111827; /* Força cor escura independente do tema */
+}
+
+.testimonials-stories .section-subtitle {
+    color: #4b5563; /* Força cor escura independente do tema */
 }
 
 .stories-wrapper {
