@@ -499,26 +499,75 @@
     </section>
 
     <!-- SOBRE NÓS -->
-    <section class="about" id="sobre" style="padding: 80px 0;">
+    <section class="about" id="sobre" style="padding: 100px 0; background-color: var(--bg-secondary);">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" style="margin-bottom: 48px;">
                 <span class="eyebrow">Quem Somos</span>
                 <h2>Conheça a <span class="gradient-text">Torres Fintech</span></h2>
                 <p class="section-subtitle">Mais do que contadores, somos parceiros estratégicos para o crescimento sustentável do seu negócio.</p>
             </div>
             
-            <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; margin-top: 40px;">
-                <div style="flex: 1 1 400px; position: relative;">
-                    <img src="IMG_2059.JPG" alt="Thiago Torres" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); object-fit: cover; aspect-ratio: 4/5;">
-                    <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(255,255,255,0.9); padding: 12px 20px; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-                        <strong style="display: block; color: #111827; margin: 0; font-size: 16px;">Thiago Torres</strong>
-                        <small style="color: #6B7280; font-size: 14px;">Fundador & CEO</small>
+            <style>
+                .about-bento {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 24px;
+                }
+                @media (min-width: 900px) {
+                    .about-bento {
+                        grid-template-columns: 5fr 7fr;
+                    }
+                }
+                .bento-card {
+                    background: var(--bg-main);
+                    border-radius: 24px;
+                    overflow: hidden;
+                    box-shadow: var(--shadow-md);
+                    border: 1px solid var(--gray-100);
+                    position: relative;
+                }
+                .bento-card-text {
+                    padding: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+                .bento-img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
+                .bento-card:hover .bento-img {
+                    transform: scale(1.03);
+                }
+            </style>
+
+            <div class="about-bento">
+                <!-- Coluna Esquerda: Thiago -->
+                <div class="bento-card" style="min-height: 500px;">
+                    <img src="IMG_2059.JPG" alt="Thiago Torres" class="bento-img" style="position: absolute; inset: 0;">
+                    <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 10, 30, 0.9) 0%, rgba(15, 10, 30, 0) 50%); pointer-events: none;"></div>
+                    <div style="position: absolute; bottom: 32px; left: 32px; right: 32px; color: var(--white);">
+                        <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 4px;">Thiago Torres</h3>
+                        <p style="color: var(--primary-light); font-weight: 500; font-size: 15px; margin: 0;">Fundador & CEO</p>
                     </div>
                 </div>
-                <div style="flex: 1 1 400px;">
-                    <h3 style="font-size: 28px; margin-bottom: 16px; font-weight: 700;">Nosso time e escritório</h3>
-                    <p style="color: var(--text-light); margin-bottom: 24px; line-height: 1.6; font-size: 18px;">Combinamos a melhor tecnologia do mercado com um time de especialistas trabalhando em um ambiente desenhado para garantir o máximo de eficiência. Seu financeiro e sua contabilidade ficam nas mãos de quem realmente entende do assunto.</p>
-                    <img src="IMG_2342.JPG" alt="Equipe trabalhando" style="width: 100%; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); object-fit: cover; aspect-ratio: 16/9;">
+
+                <!-- Coluna Direita: Texto + Time -->
+                <div style="display: grid; gap: 24px; grid-template-rows: auto 1fr;">
+                    <div class="bento-card bento-card-text">
+                        <div style="display: inline-flex; align-items: center; gap: 8px; background: var(--primary-50); color: var(--primary-dark); padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; width: fit-content; margin-bottom: 20px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            Nosso Escritório
+                        </div>
+                        <h3 style="font-size: 32px; margin-bottom: 16px; font-weight: 800; letter-spacing: -0.5px;">Tecnologia aliada a <span class="gradient-text">pessoas.</span></h3>
+                        <p style="color: var(--text-muted); line-height: 1.7; font-size: 17px; margin: 0;">Combinamos a melhor infraestrutura tecnológica do mercado com um time de especialistas altamente capacitados. Trabalhamos em um ambiente moderno desenhado para garantir o máximo de eficiência, segurança e precisão para o seu financeiro.</p>
+                    </div>
+                    
+                    <div class="bento-card" style="min-height: 300px;">
+                        <img src="IMG_2342.JPG" alt="Equipe trabalhando" class="bento-img" style="position: absolute; inset: 0;">
+                    </div>
                 </div>
             </div>
         </div>
