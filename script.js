@@ -279,7 +279,13 @@ function openVideoModal(videoSrc, isVertical = false) {
         video.style.display = 'none';
         video.src = '';
         iframe.style.display = 'block';
-        iframe.src = `https://www.youtube.com/embed/${videoSrc}?autoplay=1`;
+        // If it starts with 'DM', 'DN', or 'DO', use Instagram embed
+        const isInstagram = videoSrc.length === 11 && (videoSrc.startsWith('DM') || videoSrc.startsWith('DN') || videoSrc.startsWith('DO'));
+        if (isInstagram) {
+            iframe.src = `https://www.instagram.com/reel/${videoSrc}/embed/`;
+        } else {
+            iframe.src = `https://www.youtube.com/embed/${videoSrc}?autoplay=1`;
+        }
     }
     
     // Show modal
