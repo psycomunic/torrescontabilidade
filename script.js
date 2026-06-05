@@ -317,7 +317,7 @@ document.querySelectorAll('.story-card').forEach(card => {
         });
         card.addEventListener('mouseleave', () => {
             video.pause();
-            video.currentTime = 0;
+            video.currentTime = 1;
         });
     }
 });
