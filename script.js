@@ -313,23 +313,16 @@ function closeVideoModal() {
 }
 
 // ====================================
-// STORIES HOVER TO PLAY & PRE-RENDER LOGIC
+// STORIES HOVER TO PLAY LOGIC
 // ====================================
 document.querySelectorAll('.story-card').forEach(card => {
     const video = card.querySelector('video');
     if (video) {
-        // Force pre-seek to 1s to load the cover frame on page load
-        video.currentTime = 1;
-        video.addEventListener('loadedmetadata', () => {
-            video.currentTime = 1;
-        });
-
         card.addEventListener('mouseenter', () => {
             video.play().catch(err => console.log("Play interrupted:", err));
         });
         card.addEventListener('mouseleave', () => {
             video.pause();
-            video.currentTime = 1;
         });
     }
 });
