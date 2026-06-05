@@ -89,11 +89,21 @@
     overflow: hidden;
 }
 
-.modal-video-container iframe {
+.modal-video-container iframe,
+.modal-video-container video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+/* Custom styling for vertical video modal */
+.video-modal.vertical-video .modal-content {
+    max-width: 380px; /* Perfect width for vertical mobile videos */
+}
+
+.video-modal.vertical-video .modal-video-container {
+    padding-bottom: 177.77%; /* 9:16 aspect ratio */
 }

@@ -256,12 +256,31 @@ if (scrollContainer && prevBtn && nextBtn) {
 // ====================================
 // VIDEO MODAL LOGIC
 // ====================================
-function openVideoModal(videoId) {
+function openVideoModal(videoSrc, isVertical = false) {
     const modal = document.getElementById('videoModal');
     const iframe = document.getElementById('modalIframe');
+    const video = document.getElementById('modalVideo');
     
-    // Set iframe source with autoplay
-    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    if (isVertical) {
+        modal.classList.add('vertical-video');
+    } else {
+        modal.classList.remove('vertical-video');
+    }
+    
+    const isLocal = videoSrc.endsWith('.mp4') || videoSrc.endsWith('.mov') || videoSrc.includes('/');
+    
+    if (isLocal) {
+        iframe.style.display = 'none';
+        iframe.src = '';
+        video.style.display = 'block';
+        video.src = videoSrc;
+        video.play().catch(err => console.log("Autoplay blocked:", err));
+    } else {
+        video.style.display = 'none';
+        video.src = '';
+        iframe.style.display = 'block';
+        iframe.src = `https://www.youtube.com/embed/${videoSrc}?autoplay=1`;
+    }
     
     // Show modal
     modal.classList.add('active');
@@ -273,13 +292,32 @@ function openVideoModal(videoId) {
 function closeVideoModal() {
     const modal = document.getElementById('videoModal');
     const iframe = document.getElementById('modalIframe');
+    const video = document.getElementById('modalVideo');
     
     // Hide modal
     modal.classList.remove('active');
     
-    // Stop video by clearing src
+    // Stop video
     iframe.src = '';
+    video.pause();
+    video.src = '';
     
     // Restore body scroll
     document.body.style.overflow = '';
 }
+
+// ====================================
+// STORIES HOVER TO PLAY LOGIC
+// ====================================
+document.querySelectorAll('.story-card').forEach(card => {
+    const video = card.querySelector('video');
+    if (video) {
+        card.addEventListener('mouseenter', () => {
+            video.play().catch(err => console.log("Play interrupted:", err));
+        });
+        card.addEventListener('mouseleave', () => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    }
+});
