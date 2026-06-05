@@ -146,7 +146,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Elements to animate
 const animateElements = document.querySelectorAll(
-    '.problem-card, .solution-card, .diff-card, .bpo-item, .testimonial-card, .pricing-card, .process-step, .faq-item'
+    '.problem-card, .solution-card, .diff-card, .bpo-item, .testimonial-card, .process-step, .faq-item'
 );
 
 animateElements.forEach((el, index) => {
